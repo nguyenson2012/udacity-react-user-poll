@@ -28,12 +28,12 @@ const App = ({ authUser, initData }) => {
             <NavBar />
             <ContentGrid>
               <Routes>
-                <Route exact path="/" element={Home} />
-                <Route path="/questions/bad_id" element={NotFoundScreen} />
-                <Route path="/questions/:question_id" element={UserBox} />
-                <Route path="/add" element={AddPollScreen} />
-                <Route path="/leaderboard" element={LeaderboardScreen} />
-                <Route element={NotFoundScreen} />
+                <Route path="/" element={<Home />} />
+                <Route path="/questions/bad_id" element={<NotFoundScreen />} />
+                <Route path="/questions/:question_id" element={<UserBox />} />
+                <Route path="/add" element={<AddPollScreen />} />
+                <Route path="/leaderboard" element={<LeaderboardScreen />} />
+                <Route element={<NotFoundScreen />} />
               </Routes>
             </ContentGrid>
           </div>

@@ -7,14 +7,15 @@ const { Option } = Select;
 
 const LoginForm = ({ onLoading, setAuthUser, users }) => {
   const [value, setValue] = useState("");
-  const [loading, setLoading] = useState(onLoading);
+  const [loading, setLoading] = useState(false);
 
   const onChange = (newValue) => {
+    console.log("newValue", newValue);
     setValue(newValue);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    console.log("handleSubmit", value);
     const authUser = value;
 
     setLoading(true);

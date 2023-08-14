@@ -5,8 +5,8 @@ import { Menu, Image, Button, Row, Col } from "antd";
 import { setAuthUser } from "../../actions/authUser";
 
 const NavBar = ({ authUser, users, setAuthUser }) => {
+  console.log("NavBar", authUser, users);
   const handleLogout = (e) => {
-    e.preventDefault();
     setAuthUser(null);
   };
 
@@ -30,11 +30,11 @@ const NavBar = ({ authUser, users, setAuthUser }) => {
         </Col>
         <Col>
           <div className="user-info">
-            <Image
+            {/* <Image
               src={users[authUser].avatarURL}
               avatar
               style={{ marginRight: "8px" }}
-            />
+            /> */}
             <span>{users[authUser].name}</span>
             <Button
               type="link"

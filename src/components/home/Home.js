@@ -4,6 +4,7 @@ import { Tabs } from "antd";
 import UserBox from "./UserBox";
 
 const Home = ({ questionData }) => {
+  console.log("questionData", questionData);
   const [tab, setTab] = React.useState(1);
   return (
     <Tabs
