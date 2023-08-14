@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Card, Divider, Row, Col, Typography } from "antd";
-import PollQuestion from "./PollQuestion";
-import PollAnswer from "./PollAnswer";
-import PollDemo from "./PollDemo";
+import PollQuestion from "../poll/PollQuestion";
+import PollAnswer from "../poll/PollAnswer";
+import PollDemo from "../poll/PollDemo";
 
 const { Text } = Typography;
 

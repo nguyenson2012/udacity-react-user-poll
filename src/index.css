@@ -6,6 +6,53 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+html,
+body {
+  font-size: 16px;
+}
+
+.App {
+  padding: 0 4px;
+}
+.tab .ui.tabular.menu .item {
+  flex: 1 1 auto;
+  background: none #f6f6f6;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top-width: 1px;
+  border-color: #d4d4d5;
+}
+.tab .ui.tabular.menu .active.item {
+  background: none #fff;
+}
+
+.ui.radio.checkbox {
+  margin-left: 20px;
+  margin-bottom: 4px;
+}
+
+i.compact.icon {
+  margin: 0 0.5em 0 0 !important;
+}
+.ui.ribbon.label.vote {
+  margin-bottom: 8px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.85em;
+}
+.ui.grid > .row.login:first-of-type {
+  padding-top: 1em;
+}
+.ui.grid > .row.login:last-of-type {
+  padding-bottom: 1em;
+}
+.ui.grid > .row.login {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }

@@ -22,7 +22,7 @@ const Home = ({ questionData }) => {
                 <UserBox
                   key={question.id}
                   question_id={question.id}
-                  unanswered={tab == 1 ? true : false}
+                  unanswered={tab === 1 ? true : false}
                 />
               ))}
             </div>
