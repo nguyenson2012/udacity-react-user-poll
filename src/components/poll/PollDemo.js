@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Typography, Button } from "antd";
-import { colors } from "../helpers/colors";
+import { colors } from "../../helper/colors";
 
 const PollDemo = ({ question, unanswered }) => {
   const [viewPoll, setViewPoll] = useState(false);
@@ -14,7 +14,7 @@ const PollDemo = ({ question, unanswered }) => {
   const buttonContent = unanswered === true ? "Poll Available" : "Results";
 
   if (viewPoll) {
-    return <Redirect push to={`/questions/${question.id}`} />;
+    return <Navigate push to={`/questions/${question.id}`} />;
   }
 
   return (

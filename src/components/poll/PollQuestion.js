@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Typography, Form, Radio, Button } from "antd";
-import { handleSaveQuestionAnswer } from "../actions/users";
+import { handleSaveQuestionAnswer } from "../../actions/users";
 
 const PollQuestion = ({ authUser, handleSaveQuestionAnswer, question }) => {
   const [value, setValue] = useState("");

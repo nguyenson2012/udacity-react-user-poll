@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Form, Typography, Button, Select, Spin, Option } from "antd";
-import { setAuthUser } from "../actions/authUser";
+import { Form, Typography, Button, Select, Spin } from "antd";
+import { setAuthUser } from "../../actions/authUser";
+
+const { Option } = Select;
 
 const LoginForm = ({ onLoading, setAuthUser, users }) => {
   const [value, setValue] = useState("");

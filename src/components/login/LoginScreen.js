@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Layout, Image } from "antd";
-import { setAuthUser } from "../actions/authUser";
-import Header from "./Login";
+import { setAuthUser } from "../../actions/authUser";
+import Header from "./Header";
 import GridLayout from "./GridLayout";
 import LoginForm from "./LoginForm";
 

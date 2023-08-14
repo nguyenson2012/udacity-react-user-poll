@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { Card, Typography, Divider, Input, Button, Spin } from "antd";
-import { handleSaveQuestion } from "../actions/questions";
+import { handleSaveQuestion } from "../../actions/questions";
 
 const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
   const [submitValid, setSubmitValid] = useState(false);
@@ -35,7 +35,7 @@ const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
   const disabled = option1 === "" || option2 === "";
 
   if (submitValid) {
-    return <Redirect to="/" />;
+    return <Navigate to="/" />;
   }
 
   return (

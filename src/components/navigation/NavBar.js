@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { Menu, Image, Button, Row, Col } from "antd";
-import { setAuthUser } from "../actions/authUser";
+import { setAuthUser } from "../../actions/authUser";
 
 const NavBar = ({ authUser, users, setAuthUser }) => {
   const handleLogout = (e) => {

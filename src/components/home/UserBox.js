@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Card, Divider, Row, Col, Typography } from "antd";
 import PollQuestion from "../poll/PollQuestion";
 import PollAnswer from "../poll/PollAnswer";
@@ -31,7 +31,7 @@ const PollContent = (props) => {
 
 const UserBox = ({ author, question, pollType, incorrectPath, unanswered }) => {
   if (incorrectPath === true) {
-    return <Redirect to="/questions/bad_id" />;
+    return <Navigate to="/questions/bad_id" />;
   }
 
   return (
