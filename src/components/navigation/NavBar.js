@@ -14,7 +14,7 @@ const NavBar = ({ authUser, users, setAuthUser }) => {
     <div className="nav">
       <Row justify="space-between" align="middle">
         <Col>
-          <Menu mode="horizontal" theme="dark">
+          <Menu mode="horizontal">
             <Menu.Item key="home">
               <NavLink to="/" exact>
                 Home

@@ -4,30 +4,38 @@ import { Tabs } from "antd";
 import UserBox from "./UserBox";
 
 const Home = ({ questionData }) => {
-  console.log("questionData", questionData);
-  const [tab, setTab] = React.useState(1);
   return (
     <Tabs
-      onChange={(key) => {
-        setTab(key);
-      }}
+      centered
       type="card"
       items={new Array(2).fill(null).map((_, i) => {
         const id = String(i + 1);
+        console.log("id", id);
         return {
-          label: `Tab ${id}`,
+          label: id == 1 ? `Unanswered` : `Answered`,
           key: id,
-          children: (
-            <div>
-              {questionData.unanswered.map((question) => (
-                <UserBox
-                  key={question.id}
-                  question_id={question.id}
-                  unanswered={tab === 1 ? true : false}
-                />
-              ))}
-            </div>
-          ),
+          children:
+            id == 1 ? (
+              <div>
+                {questionData.unanswered.map((question) => (
+                  <UserBox
+                    key={question.id}
+                    question_id={question.id}
+                    unanswered={id == 1 ? true : false}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div>
+                {questionData.answered.map((question) => (
+                  <UserBox
+                    key={question.id}
+                    question_id={question.id}
+                    unanswered={id == 1 ? true : false}
+                  />
+                ))}
+              </div>
+            ),
         };
       })}
     />
