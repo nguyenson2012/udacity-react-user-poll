@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { Card, Typography, Divider, Input, Button, Spin } from "antd";
+import { Card, Typography, Divider, Input, Button } from "antd";
 import { handleSaveQuestion } from "../../actions/questions";
 
 const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
   const [submitValid, setSubmitValid] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [option1, setOption1] = useState("");
   const [option2, setOption2] = useState("");
 
@@ -20,28 +19,21 @@ const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
     handleSaveQuestion(option1, option2, authUser);
-
-    setTimeout(() => {
-      setLoading(false);
-      setOption1("");
-      setOption2("");
-      setSubmitValid(true);
-    }, 1000);
+    setOption1("");
+    setOption2("");
+    setSubmitValid(true);
   };
 
   const disabled = option1 === "" || option2 === "";
 
-  if (submitValid) {
-    return <Navigate to="/" />;
+  if (submitValid === true) {
+    return <Redirect to="/" />;
   }
 
   return (
     <Card title="Create a New Poll">
       <div>
-        {loading && <Spin />}
         <Typography>Answer The Question Below:</Typography>
         <Typography>
           <strong>Would you rather </strong>

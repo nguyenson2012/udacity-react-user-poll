@@ -7,11 +7,12 @@ const PollQuestion = ({ authUser, handleSaveQuestionAnswer, question }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {
+    console.log("handleChange", e.target.value);
     setValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    console.log("handleSubmit", value);
     if (value !== "") {
       handleSaveQuestionAnswer(authUser, question.id, value);
     }
@@ -24,7 +25,7 @@ const PollQuestion = ({ authUser, handleSaveQuestionAnswer, question }) => {
       <Typography strong as="h4">
         Would you rather
       </Typography>
-      <Form onSubmit={handleSubmit}>
+      <Form onFinish={handleSubmit}>
         <Form.Item>
           <Radio.Group name="radioGroup" onChange={handleChange} value={value}>
             <Radio value="optionOne">{question.optionOne.text}</Radio>

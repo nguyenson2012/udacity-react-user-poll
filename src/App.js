@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout, Row, Col } from "antd";
 import { initData } from "./actions/shared";
 import { connect } from "react-redux";
 import LoginScreen from "./components/login/LoginScreen";
 import NavBar from "./components/navigation/NavBar";
 import Home from "./components/home/Home";
-import UserDetail from "./components/home/UserDetail";
+import UserBox from "./components/home/UserBox";
 import AddPollScreen from "./components/add/AddPollScreen";
 import LeaderboardScreen from "./components/leaderboard/LeaderboardScreen";
 import NotFoundScreen from "./components/error/NotFoundScreen";
@@ -27,17 +27,14 @@ const App = ({ authUser, initData }) => {
           <div>
             <NavBar />
             <ContentGrid>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/questions/bad_id" element={<NotFoundScreen />} />
-                <Route
-                  path="/questions/:question_id"
-                  element={<UserDetail />}
-                />
-                <Route path="/add" element={<AddPollScreen />} />
-                <Route path="/leaderboard" element={<LeaderboardScreen />} />
-                <Route element={<NotFoundScreen />} />
-              </Routes>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/questions/bad_id" component={NotFoundScreen} />
+                <Route path="/questions/:question_id" component={UserBox} />
+                <Route path="/add" component={AddPollScreen} />
+                <Route path="/leaderboard" component={LeaderboardScreen} />
+                <Route component={NotFoundScreen} />
+              </Switch>
             </ContentGrid>
           </div>
         )}

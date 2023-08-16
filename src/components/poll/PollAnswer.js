@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Typography, Progress, Tag, Button } from "antd";
 import { styles } from "../../helper/colors";
@@ -91,17 +91,6 @@ function mapStateToProps({ users, authUser }) {
   return {
     user,
   };
-}
-
-function withRouter(Component) {
-  function ComponentWithRouterProp(props) {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
-    return <Component {...props} router={{ location, navigate, params }} />;
-  }
-
-  return ComponentWithRouterProp;
 }
 
 export default withRouter(connect(mapStateToProps)(PollAnswer));

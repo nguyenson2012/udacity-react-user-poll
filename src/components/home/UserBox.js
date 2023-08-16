@@ -1,28 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Card, Divider, Row, Col, Typography } from "antd";
 import PollQuestion from "../poll/PollQuestion";
 import PollAnswer from "../poll/PollAnswer";
 import PollDemo from "../poll/PollDemo";
-
-const { Text } = Typography;
-
-const pollTypes = {
-  POLL_DEMO: "POLL_DEMO",
-  POLL_QUESTION: "POLL_QUESTION",
-  POLL_ANSWER: "POLL_ANSWER",
-};
+import { PollType } from "../../types/index";
 
 const PollContent = (props) => {
   const { pollType, question, unanswered } = props;
 
   switch (pollType) {
-    case pollTypes.POLL_DEMO:
+    case PollType.POLL_DEMO:
       return <PollDemo question={question} unanswered={unanswered} />;
-    case pollTypes.POLL_QUESTION:
+    case PollType.POLL_QUESTION:
       return <PollQuestion question={question} />;
-    case pollTypes.POLL_ANSWER:
+    case PollType.POLL_ANSWER:
       return <PollAnswer question={question} />;
     default:
       return null;
@@ -31,13 +24,13 @@ const PollContent = (props) => {
 
 const UserBox = ({ author, question, pollType, incorrectPath, unanswered }) => {
   if (incorrectPath === true) {
-    return <Navigate to="/questions/bad_id" />;
+    return <Redirect to="/questions/bad_id" />;
   }
 
   return (
     <Card bordered>
       <div>
-        <Text strong>{author.name} asks:</Text>
+        <Typography strong>{author.name} asks:</Typography>
       </div>
       <Divider />
       <Row gutter={[15, 15]}>
@@ -72,7 +65,7 @@ function mapStateToProps(
   if (question_id !== undefined) {
     question = questions[question_id];
     author = users[question.author];
-    pollType = pollTypes.POLL_DEMO;
+    pollType = PollType.POLL_DEMO;
   } else {
     const { question_id } = match.params;
     question = questions[question_id];
@@ -82,9 +75,9 @@ function mapStateToProps(
       incorrectPath = true;
     } else {
       author = users[question.author];
-      pollType = pollTypes.POLL_QUESTION;
+      pollType = PollType.POLL_QUESTION;
       if (Object.keys(user.answers).includes(question.id)) {
-        pollType = pollTypes.POLL_ANSWER;
+        pollType = PollType.POLL_ANSWER;
       }
     }
   }

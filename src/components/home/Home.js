@@ -10,7 +10,6 @@ const Home = ({ questionData }) => {
       type="card"
       items={new Array(2).fill(null).map((_, i) => {
         const id = String(i + 1);
-        console.log("id", id);
         return {
           label: id == 1 ? `Unanswered` : `Answered`,
           key: id,
@@ -45,10 +44,10 @@ const Home = ({ questionData }) => {
 function mapStateToProps({ authUser, users, questions }) {
   const answeredIds = Object.keys(users[authUser].answers);
   const answered = Object.values(questions)
-    .filter((question) => !answeredIds.includes(question.id))
+    .filter((question) => answeredIds.includes(question.id))
     .sort((a, b) => b.timestamp - a.timestamp);
   const unanswered = Object.values(questions)
-    .filter((question) => answeredIds.includes(question.id))
+    .filter((question) => !answeredIds.includes(question.id))
     .sort((a, b) => b.timestamp - a.timestamp);
 
   return {
