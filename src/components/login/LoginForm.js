@@ -7,6 +7,7 @@ const { Option } = Select;
 
 const LoginForm = ({ onLoading, setAuthUser, users }) => {
   const [value, setValue] = useState("");
+  const [isShowError, setShowError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const onChange = (newValue) => {
@@ -15,14 +16,18 @@ const LoginForm = ({ onLoading, setAuthUser, users }) => {
   };
 
   const handleSubmit = (e) => {
-    console.log("handleSubmit", value);
-    const authUser = value;
+    if (value === "") {
+      setShowError(true);
+    } else {
+      console.log("handleSubmit", value);
+      const authUser = value;
 
-    setLoading(true);
-    setTimeout(() => {
-      setAuthUser(authUser);
-      setLoading(false);
-    }, 500);
+      setLoading(true);
+      setTimeout(() => {
+        setAuthUser(authUser);
+        setLoading(false);
+      }, 500);
+    }
   };
 
   const getDropdownData = () => {
@@ -33,8 +38,6 @@ const LoginForm = ({ onLoading, setAuthUser, users }) => {
     ));
   };
 
-  const disabled = value === "";
-
   return (
     <Form onFinish={handleSubmit}>
       <Typography level={2} style={{ color: "green" }}>
@@ -42,6 +45,7 @@ const LoginForm = ({ onLoading, setAuthUser, users }) => {
       </Typography>
       <Form.Item>
         <Select
+          data-testid="user-select"
           placeholder="Select a character"
           showSearch
           optionFilterProp="children"
@@ -56,10 +60,20 @@ const LoginForm = ({ onLoading, setAuthUser, users }) => {
         </Select>
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit" disabled={disabled} block>
+        <Button
+          data-testid="submit-button"
+          type="primary"
+          htmlType="submit"
+          block
+        >
           {loading ? <Spin /> : "Login"}
         </Button>
       </Form.Item>
+      {isShowError && (
+        <Typography data-testid="error-text" level={1} style={{ color: "red" }}>
+          Need Choose User!
+        </Typography>
+      )}
     </Form>
   );
 };
