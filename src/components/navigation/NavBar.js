@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { Menu, Button, Row, Col } from "antd";
+import { Menu, Button, Row, Col, Image } from "antd";
 import { setAuthUser } from "../../actions/authUser";
 
 const NavBar = ({ authUser, users, setAuthUser }) => {
@@ -30,11 +30,13 @@ const NavBar = ({ authUser, users, setAuthUser }) => {
         </Col>
         <Col>
           <div className="user-info">
-            {/* <Image
+            <Image
               src={users[authUser].avatarURL}
-              avatar
+              width={40}
+              height={40}
+              preview={false}
               style={{ marginRight: "8px" }}
-            /> */}
+            />
             <span>{users[authUser].name}</span>
             <Button
               type="link"
