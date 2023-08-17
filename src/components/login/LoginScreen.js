@@ -20,7 +20,7 @@ const LoginScreen = () => {
           <div style={{ padding: "20px" }}>
             <Header />
             <GridLayout
-              image={<Image src="/images/avatars/" preview={false} />}
+              image={<Image src="/images/avatars/marvel.jpeg" preview={false} />}
               form={<LoginForm onLoading={handleLoading} />}
               loading={loading}
             />
