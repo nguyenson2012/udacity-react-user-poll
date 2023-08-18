@@ -11,7 +11,7 @@ This app is the second of three projects required for [Udacity's React Nanodegre
 Clone the repository, change directories, and use NPM to install the dependencies.
 
 ```bash
-$ git clone https://github.com/nguyenson2012/udacity-react-user-poll
+$ git clone https://github.com/nguyenson2012/udacity-react-user-poll.git
 $ cd udacity-react-user-poll
 $ npm install
 ```
