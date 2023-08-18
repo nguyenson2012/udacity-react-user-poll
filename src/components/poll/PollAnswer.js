@@ -30,7 +30,7 @@ function PollAnswer({ history, question, user }) {
 
   return (
     <div>
-      <Typography strong as="h3">
+      <Typography level={3}>
         Results:
         <Typography style={{ fontWeight: "bold" }}>
           {" "}

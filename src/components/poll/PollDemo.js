@@ -19,7 +19,7 @@ const PollDemo = ({ question, unanswered }) => {
 
   return (
     <div>
-      <Typography strong style={{ textAlign: "left" }}>
+      <Typography level={4} style={{ textAlign: "left" }}>
         Would you rather
       </Typography>
       <p style={{ textAlign: "center" }}>
