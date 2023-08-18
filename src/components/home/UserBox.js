@@ -6,6 +6,7 @@ import PollQuestion from "../poll/PollQuestion";
 import PollAnswer from "../poll/PollAnswer";
 import PollDemo from "../poll/PollDemo";
 import { PollType } from "../../types/index";
+import { setAuthUser } from "../../actions/authUser";
 
 const PollContent = (props) => {
   const { pollType, question, unanswered } = props;
@@ -24,6 +25,7 @@ const PollContent = (props) => {
 
 const UserBox = ({ author, question, pollType, incorrectPath, unanswered }) => {
   if (incorrectPath === true) {
+    setAuthUser(null);
     return <Redirect to="/questions/bad_id" />;
   }
 
