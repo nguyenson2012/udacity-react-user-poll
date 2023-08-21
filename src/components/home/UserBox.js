@@ -32,7 +32,7 @@ const UserBox = ({ author, question, pollType, incorrectPath, unanswered }) => {
   return (
     <Card bordered>
       <div>
-        <Typography strong>{author.name} asks:</Typography>
+        <Typography level={4}>{author.name} asks:</Typography>
       </div>
       <Divider />
       <Row gutter={[15, 15]}>

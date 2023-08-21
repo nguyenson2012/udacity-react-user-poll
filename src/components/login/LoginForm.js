@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Form, Typography, Button, Select, Spin } from "antd";
 import { setAuthUser } from "../../actions/authUser";
 
 const { Option } = Select;
 
-const LoginForm = ({ onLoading, setAuthUser, users }) => {
+const LoginForm = ({ setAuthUser, users }) => {
   const [value, setValue] = useState("");
   const [isShowError, setShowError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setValue("");
+      setShowError(false);
+      setLoading(false);
+    };
+  }, []);
 
   const onChange = (newValue) => {
     console.log("newValue", newValue);
@@ -22,11 +30,7 @@ const LoginForm = ({ onLoading, setAuthUser, users }) => {
       console.log("handleSubmit", value);
       const authUser = value;
 
-      setLoading(true);
-      setTimeout(() => {
-        setAuthUser(authUser);
-        setLoading(false);
-      }, 500);
+      setAuthUser(authUser);
     }
   };
 
