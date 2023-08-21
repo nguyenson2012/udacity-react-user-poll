@@ -30,7 +30,7 @@ function PollAnswer({ history, question, user }) {
 
   return (
     <div>
-      <Typography strong as="h3">
+      <Typography level={3}>
         Results:
         <Typography style={{ fontWeight: "bold" }}>
           {" "}
@@ -45,7 +45,7 @@ function PollAnswer({ history, question, user }) {
         }}
       >
         {userVote === "optionOne" && <YourVote />}
-        <Typography strong>{question.optionOne.text}</Typography>
+        <Typography level={4}>{question.optionOne.text}</Typography>
         <Progress
           percent={((optOneVoteNumber / totalVote) * 100).toFixed(2)}
           strokeColor={option1.color}
@@ -64,7 +64,7 @@ function PollAnswer({ history, question, user }) {
         }}
       >
         {userVote === "optionTwo" && <YourVote />}
-        <Typography strong>{question.optionTwo.text}</Typography>
+        <Typography level={4}>{question.optionTwo.text}</Typography>
         <Progress
           percent={((optTwoVoteNumber / totalVote) * 100).toFixed(2)}
           strokeColor={option2.color}

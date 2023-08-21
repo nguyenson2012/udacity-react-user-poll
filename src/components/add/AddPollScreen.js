@@ -35,9 +35,7 @@ const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
     <Card title="Create a New Poll">
       <div>
         <Typography>Answer The Question Below:</Typography>
-        <Typography>
-          <strong>Would you rather </strong>
-        </Typography>
+        <Typography level={3}>Would you rather</Typography>
         <form onSubmit={handleSubmit}>
           <Input
             id="option1"

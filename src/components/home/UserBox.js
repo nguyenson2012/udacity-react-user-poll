@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Card, Divider, Row, Col, Typography } from "antd";
+import { Card, Divider, Row, Col, Typography, Image } from "antd";
 import PollQuestion from "../poll/PollQuestion";
 import PollAnswer from "../poll/PollAnswer";
 import PollDemo from "../poll/PollDemo";
 import { PollType } from "../../types/index";
+import { setAuthUser } from "../../actions/authUser";
 
 const PollContent = (props) => {
   const { pollType, question, unanswered } = props;
@@ -24,22 +25,19 @@ const PollContent = (props) => {
 
 const UserBox = ({ author, question, pollType, incorrectPath, unanswered }) => {
   if (incorrectPath === true) {
+    setAuthUser(null);
     return <Redirect to="/questions/bad_id" />;
   }
 
   return (
     <Card bordered>
       <div>
-        <Typography strong>{author.name} asks:</Typography>
+        <Typography level={4}>{author.name} asks:</Typography>
       </div>
       <Divider />
       <Row gutter={[15, 15]}>
         <Col span={4}>
-          <img
-            src={author.avatarURL}
-            alt="User Avatar"
-            style={{ width: "100%" }}
-          />
+          <Image src={author.avatarURL} style={{ width: "100%" }} />
         </Col>
         <Col span={19}>
           <PollContent

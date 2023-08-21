@@ -3,9 +3,8 @@ import { Typography } from "antd";
 
 const NotFoundScreen = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <Typography level={3}>Not Found</Typography>
-      <Typography>Please try again.</Typography>
+    <div style={{ textAlign: "center", marginTop: "10px" }}>
+      <Typography level={3}>Question Not Found!</Typography>
     </div>
   );
 };

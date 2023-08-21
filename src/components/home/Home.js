@@ -11,16 +11,16 @@ const Home = ({ questionData }) => {
       items={new Array(2).fill(null).map((_, i) => {
         const id = String(i + 1);
         return {
-          label: id == 1 ? `Unanswered` : `Answered`,
+          label: id === "1" ? `Unanswered` : `Answered`,
           key: id,
           children:
-            id == 1 ? (
+            id === "1" ? (
               <div>
                 {questionData.unanswered.map((question) => (
                   <UserBox
                     key={question.id}
                     question_id={question.id}
-                    unanswered={id == 1 ? true : false}
+                    unanswered={id === "1" ? true : false}
                   />
                 ))}
               </div>
@@ -30,7 +30,7 @@ const Home = ({ questionData }) => {
                   <UserBox
                     key={question.id}
                     question_id={question.id}
-                    unanswered={id == 1 ? true : false}
+                    unanswered={id === "1" ? true : false}
                   />
                 ))}
               </div>

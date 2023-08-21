@@ -22,9 +22,7 @@ const PollQuestion = ({ authUser, handleSaveQuestionAnswer, question }) => {
 
   return (
     <div>
-      <Typography strong as="h4">
-        Would you rather
-      </Typography>
+      <Typography level={4}>Would you rather</Typography>
       <Form onFinish={handleSubmit}>
         <Form.Item>
           <Radio.Group name="radioGroup" onChange={handleChange} value={value}>
