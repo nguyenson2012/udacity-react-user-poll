@@ -19,6 +19,7 @@ const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     handleSaveQuestion(option1, option2, authUser);
     setOption1("");
     setOption2("");
@@ -53,8 +54,8 @@ const AddPollScreen = ({ authUser, handleSaveQuestion }) => {
             required
           />
           <Button
-            type="primary"
             size="small"
+            type="primary"
             block
             disabled={disabled}
             htmlType="submit"
